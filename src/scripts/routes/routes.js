@@ -5,7 +5,7 @@ const routes = {
   "/detail/:id": detail,
   "/favorite": favorite,
   "/about-us": () => {
-    window.open("#");
+    window.open("https://github.com/RizkaRslndP");
   },
 };
 

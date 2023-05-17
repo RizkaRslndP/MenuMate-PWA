@@ -1,9 +1,7 @@
-import logoImage from '../../../public/images/logo.png';
-
 class FooterContact extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
 
     const FooterContactHtml = `
         <style>
@@ -230,4 +228,4 @@ class FooterContact extends HTMLElement {
   }
 }
 
-customElements.define('footer-contact', FooterContact);
+customElements.define("footer-contact", FooterContact);

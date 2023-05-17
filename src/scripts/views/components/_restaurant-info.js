@@ -34,19 +34,36 @@ class RestoInfo extends HTMLElement {
         </div>
       </div>
       <hr>
-      <div class='resto-img'>
-        <img src='${
-          CONFIG.SMALL_BASE_IMAGE_URL
-        }${pictureId}' alt='Resto Image ${name}'>
-        </div>
-        <div class='resto-description'>
-          <h2>Description</h2>
-          <p>${description}</p>
-        </div>
-        <vr>
-        <section class='resto-info'>
-          <div class='resto-details__section'>
-            <div class='resto-details__content'>
+      <section class='resto-info'>
+        <div class='resto-details__section'>
+        <div class='resto-img'>
+          <img src='${
+            CONFIG.SMALL_BASE_IMAGE_URL
+          }${pictureId}' alt='Resto Image ${name}'>
+          </div>
+          <div class='resto-description'>
+            <h2>Description</h2>
+            <p>${description}</p>
+          </div>
+          <vr>
+          <div class='resto-menus'>
+            <h2>Menu</h2>
+            <div class='menus'>
+              <div class='sub-menu'>
+                <h3>Main Dish</h3>
+                <ul>
+                  ${restoFoodMenu}
+                </ul>
+              </div>
+              <div class='sub-menu'>
+                <h3>Drinks</h3>
+                <ul>
+                  ${restodrinksMenu}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class='resto-details__content'>
             <div class='address'>
             <h3>Address</h3>
             <p>${address}</p>
@@ -66,24 +83,7 @@ class RestoInfo extends HTMLElement {
               </span>
             </p>
           </div>
-          <vr>
-          <div class='resto-menus'>
-            <h2>Menu</h2>
-            <div class='menus'>
-              <div class='sub-menu'>
-                <h3>Main Dish</h3>
-                <ul>
-                  ${restoFoodMenu}
-                </ul>
-              </div>
-              <div class='sub-menu'>
-                <h3>Drinks</h3>
-                <ul>
-                  ${restodrinksMenu}
-                </ul>
-              </div>
-            </div>
-          </div>    
+          <vr>    
         </section>
       </article>
     `;

@@ -13,7 +13,6 @@ html {
   margin: 0;
 }
 
-/* --- Body --- */
 body {
   padding: 0;
   display: flex;
@@ -40,8 +39,6 @@ favorite-page h1 {
   margin-bottom: 30px;
 }
 
-
-/* --- Extra --- */
 .skip-link {
   position: absolute;
   top: -50px;

@@ -40,6 +40,10 @@ class RestoInfo extends HTMLElement {
           <h3>Address</h3>
           <p>${address}</p>
         </div>
+        <div class="city">
+            <h3>City</h3>
+            <p>${city}</p>
+          </div>
         <div class='resto-description'>
           <h2>Description</h2>
           <p>${description}</p>
@@ -50,13 +54,13 @@ class RestoInfo extends HTMLElement {
       <h2>Menu</h2>
       <div class='menus'>
         <div class='sub-menu'>
-          <h3>Main Course</h3>
+          <h3>Main Dish</h3>
           <ul>
             ${restoFoodMenu}
           </ul>
         </div>
         <div class='sub-menu'>
-          <h3>Beverages</h3>
+          <h3>Drinks</h3>
           <ul>
             ${restodrinksMenu}
           </ul>

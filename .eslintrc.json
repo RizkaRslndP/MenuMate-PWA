@@ -27,6 +27,8 @@
         "import/no-extraneous-dependencies": "off",
         "no-useless-constructor": "off",
         "object-curly-newline": "off",
-        "indent": "off"
+        "indent": "off",
+        "no-param-reassign": "off",
+        "no-inner-declarations": "off"
     }
 }

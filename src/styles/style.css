@@ -438,17 +438,16 @@ hr {
   margin: auto;
 }
 
-.categories ul {
-  display: flex;
-  justify-content: center;
-  color: #c4c4c4;
-}
-
 .categories h3 {
   font-size: 28px;
   font-weight: bold;
   color: rgb(145, 126, 87);
-  margin-bottom: 10px;
+}
+
+.categories ul {
+  display: flex;
+  justify-content: center;
+  color: #c4c4c4;
 }
 
 .resto-img {

@@ -167,7 +167,7 @@ nav-bar>.nav-container {
 /* --- Restaurant List --- */
 h3 {
   color: rgb(145, 126, 87);
-  font-size: 62px !important;
+  font-size: 62px;
   font-family: 'Satisfy', cursive;
   text-shadow: 2px 2px #0c0c0c;
   text-align: center;
@@ -425,15 +425,30 @@ hr {
 .resto-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   margin-bottom: 20px;
 }
 
 .resto-header h1 {
   font-size: 34px;
   font-weight: bold;
+  font-family: 'Baskervville', serif;
   color: #ffb414;
   margin: auto;
+}
+
+.categories ul {
+  display: flex;
+  justify-content: center;
+  color: #c4c4c4;
+}
+
+.categories h3 {
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(145, 126, 87);
+  margin-bottom: 10px;
 }
 
 .resto-img {
@@ -477,7 +492,7 @@ hr {
 }
 
 .resto-description h2 {
-  font-family: "merienda", serif;
+  font-family: "Baskervville display", serif;
   color: #f1c40f
 }
 
@@ -533,10 +548,6 @@ hr {
 .resto-details__section li {
   font-size: 1rem;
   margin-bottom: 5px;
-}
-
-.categories li {
-  color: #c4c4c4;
 }
 
 .menus {

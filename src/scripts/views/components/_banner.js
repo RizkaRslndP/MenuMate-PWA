@@ -57,7 +57,7 @@ class BannerElement extends HTMLElement {
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         overflow: hidden;
-        border-right: .15em solid orange;
+        border-right: .15em solid white;
         white-space: nowrap;
         margin: 0 auto;
         letter-spacing: .15em;
@@ -80,7 +80,7 @@ class BannerElement extends HTMLElement {
           border-color: transparent;
         }
         50% {
-          border-color: orange;
+          border-color: white;
         }
       }
 
@@ -152,6 +152,7 @@ class BannerElement extends HTMLElement {
       
         p {
           font-size: 18px;
+          width: 250px;
         }
       }
       
@@ -168,6 +169,7 @@ class BannerElement extends HTMLElement {
       
         p {
           font-size: 20px;
+          width: 280px;
         }
       }
       
@@ -186,15 +188,9 @@ class BannerElement extends HTMLElement {
 
     const element = this.shadowDOM.getElementById("typing-text");
 
-    // Check if the selected element exists
     if (element !== null) {
-      // Get the original text
       const originalText = element.innerHTML;
-
-      // Clear the original text from the element
       element.innerHTML = "";
-
-      // Function to display text with typing effect
       function typeText(text, i) {
         if (i < text.length) {
           element.innerHTML += text.charAt(i);
@@ -205,7 +201,6 @@ class BannerElement extends HTMLElement {
         }
       }
 
-      // Start the animation
       typeText(originalText, 0);
     }
   }

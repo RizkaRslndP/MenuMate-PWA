@@ -33,9 +33,10 @@ detail-page {
 
 favorite-page h1 {
   text-align: center;
-  font-family: "Roboto", serif;
-  color: #f1c40f;
-  font-size: 4em;
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+  color: #e4e4e4;
+  font-size: 3em;
   margin-bottom: 30px;
 }
 
@@ -176,12 +177,15 @@ h3 {
 
 .restaurant {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
 }
 
 .restaurant-thumbnail {
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 200px;
   height: 200px;
@@ -203,7 +207,6 @@ h3 {
 .restaurant-rating {
   display: flex;
   align-items: center;
-  margin-right: 10px;
   justify-content: center;
   gap: 60px;
 }
@@ -227,8 +230,6 @@ h3 {
   border-radius: 4px;
 }
 
-
-
 .restaurant-city {
   margin: 0;
 }
@@ -246,7 +247,6 @@ h3 {
   text-decoration: none;
 }
 
-
 .rating-number::before {
   content: "★";
   display: inline-block;
@@ -255,6 +255,7 @@ h3 {
 .rating__value {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .restaurant-city {
@@ -265,7 +266,6 @@ h3 {
 .city p {
   text-align: center;
 }
-
 
 .restaurant-content {
   padding: 20px;
@@ -416,7 +416,7 @@ hr {
 /* --- Resto Info --- */
 .resto-details {
   max-width: auto;
-  margin: 10px auto;
+  margin: auto;
   padding: 20px;
   background-color: rgba(39, 39, 39, 0.815);
   border-radius: 10px;
@@ -431,16 +431,17 @@ hr {
 }
 
 .resto-header h1 {
-  font-size: 34px;
+  font-size: 38px;
   font-weight: bold;
   font-family: 'Baskervville', serif;
-  color: #ffb414;
+  color: #e4e4e4;
   margin: auto;
 }
 
 .categories h3 {
   font-size: 28px;
   font-weight: bold;
+  font-family: 'Satisfy', cursive;
   color: rgb(145, 126, 87);
 }
 
@@ -451,9 +452,13 @@ hr {
 }
 
 .resto-img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(58, 58, 58);
+  outline-color: #eeeeee;
+  outline-style: double;
   overflow: hidden;
+  margin: 30px;
 }
 
 .resto-img img {
@@ -464,25 +469,36 @@ hr {
 
 .resto-info {
   display: flex;
+  justify-content: center;
   flex-grow: 1;
 }
 
 .resto-menus {
   flex: 8 0 48%;
   text-align: center;
+  margin: 50px;
 }
 
 .resto-menus h2 {
   font-size: 38px;
   font-weight: bold;
-  color: #ddac42;
-  margin-bottom: 10px;
+  font-family: 'Baskervville', serif;
+  color: #e4e4e4;
+  margin-bottom: 5px;
+}
+
+.resto-details__content {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  margin: 20px !important;
 }
 
 .sub-menu h3,
 .resto-details__content h3 {
-  font-size: 38px !important;
-  margin: 10px !important;
+  font-size: 34px !important;
+  margin-bottom: 5px !important;
 }
 
 .sub-menu ul li {
@@ -491,8 +507,15 @@ hr {
 }
 
 .resto-description h2 {
-  font-family: "Baskervville display", serif;
-  color: #f1c40f
+  text-align: center;
+  font-size: 34px;
+  font-family: 'Satisfy', cursive;
+  color: rgb(145, 126, 87);
+}
+
+.resto-description {
+  margin-buttom: 20px;
+  margin: 20px 20px;
 }
 
 .resto-description p {
@@ -523,7 +546,7 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 0;
 }
 
 .resto-details__section h3 {
@@ -556,7 +579,8 @@ hr {
 }
 
 @media screen and (max-width: 600px) {
-  .resto-info {
+  .resto-info,
+  .resto-details__content {
     display: flex;
     flex-direction: column;
   }
@@ -631,13 +655,13 @@ hr {
 
 /* ----- Resto List Start ----- */
 resto-list {
-  margin: 10px;
+  display: flex;
+  justify-content: center;
   padding: 20px;
   width: 100%;
   display: grid;
   gap: 16px;
 }
-
 
 .resto_item {
   border: 1px solid #ddac42;
@@ -665,7 +689,7 @@ resto-list {
   object-fit: cover;
   width: 100%;
   height: 100%;
-  border-radius: 50%; /* Add border-radius to make it circular */
+  border-radius: 50%;
 }
 
 .resto_thumbnail img {
@@ -684,7 +708,7 @@ resto-list {
 }
 
 .resto_name {
-  font-family: 'Merienda', cursive;
+  font-family: 'Satisfy', cursive;
   font-size: 28px;
   font-weight: bold;
   color: #ddac42;

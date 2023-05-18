@@ -41,16 +41,16 @@ class RestoInfo extends HTMLElement {
             CONFIG.SMALL_BASE_IMAGE_URL
           }${pictureId}' alt='Resto Image ${name}'>
           </div>
+          <vr>
           <div class='resto-description'>
             <h2>Description</h2>
             <p>${description}</p>
           </div>
-          <vr>
           <div class='resto-menus'>
             <h2>Menu</h2>
             <div class='menus'>
               <div class='sub-menu'>
-                <h3>Main Dish</h3>
+                <h3>Dish</h3>
                 <ul>
                   ${restoFoodMenu}
                 </ul>
@@ -64,25 +64,25 @@ class RestoInfo extends HTMLElement {
             </div>
           </div>
           <div class='resto-details__content'>
+            <div class="city">
+              <h3>City</h3>
+              <p>${city}</p>
+            </div>
             <div class='address'>
-            <h3>Address</h3>
-            <p>${address}</p>
-          </div>
-          <div class="city">
-            <h3>City</h3>
-            <p>${city}</p>
-          </div>
-          <div class='rating'>
-            <h3>Rating</h3>
-            <p class='rating__value'>
-              ${rating}
-              <span class='rating-stars'>
-                ${Array(Math.floor(rating))
-                  .fill('<i class="rating-star"></i>')
-                  .join("")}
-              </span>
-            </p>
-          </div>
+              <h3>Address</h3>
+              <p>${address}</p>
+            </div>
+            <div class='rating'>
+              <h3>Rating</h3>
+              <p class='rating__value'>
+                ${rating}
+                <span class='rating-stars'>
+                  ${Array(Math.floor(rating))
+                    .fill('<i class="rating-star"></i>')
+                    .join("")}
+                </span>
+              </p>
+            </div>
           <vr>    
         </section>
       </article>

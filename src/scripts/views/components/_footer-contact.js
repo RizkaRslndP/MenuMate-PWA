@@ -4,14 +4,14 @@ class FooterContact extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     const FooterContactHtml = `
-        <style>
-        footer {
-          bottom: 0;
-          left: 0;
-          background-color: #333;
-          padding: 5px;
-          text-align: center;
-        }
+      <style>
+      footer {
+        bottom: 0;
+        left: 0;
+        background-color: #333;
+        padding: 5px;
+        text-align: center;
+      }
 
       .footer-content {
         display: flex;

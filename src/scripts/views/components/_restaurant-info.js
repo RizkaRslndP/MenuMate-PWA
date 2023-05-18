@@ -1,6 +1,6 @@
 import CONFIG from "../../globals/config";
 
-class RestoInfo extends HTMLElement {
+class RestaurantInfo extends HTMLElement {
   set infoResto(infoResto) {
     this._infoResto = infoResto;
     this._showRestoInfo();
@@ -63,14 +63,13 @@ class RestoInfo extends HTMLElement {
               </div>
             </div>
           </div>
+          <div class='resto-details__about'>
+            <h2>About</h2>
+          </div>
           <div class='resto-details__content'>
             <div class="city">
               <h3>City</h3>
               <p>${city}</p>
-            </div>
-            <div class='address'>
-              <h3>Address</h3>
-              <p>${address}</p>
             </div>
             <div class='rating'>
               <h3>Rating</h3>
@@ -83,7 +82,10 @@ class RestoInfo extends HTMLElement {
                 </span>
               </p>
             </div>
-          <vr>    
+            <div class='address'>
+              <h3>Address</h3>
+              <p>${address}</p>
+            </div>
         </section>
       </article>
     `;
@@ -101,4 +103,4 @@ function createList(items) {
   return listItems;
 }
 
-customElements.define("resto-info", RestoInfo);
+customElements.define("resto-info", RestaurantInfo);

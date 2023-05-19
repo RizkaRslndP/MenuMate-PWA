@@ -1,4 +1,4 @@
-import { createElement } from "../../utils";
+import { createElement } from '../../utils';
 
 class RestaurantList extends HTMLElement {
   connectedCallback() {
@@ -14,16 +14,16 @@ class RestaurantList extends HTMLElement {
   _renderSkeleton() {
     const numberItemSkeleton = 6;
     for (let i = 0; i < numberItemSkeleton; i++) {
-      const restoItemElement = document.createElement("resto-item");
+      const restoItemElement = document.createElement('resto-item');
       restoItemElement.renderSkeleton();
       this.appendChild(restoItemElement.firstElementChild);
     }
   }
 
   _renderRestoList(restoList) {
-    this.innerHTML = "";
+    this.innerHTML = '';
     const restoItemElements = restoList.map((resto) => {
-      const restoItemElement = document.createElement("resto-item");
+      const restoItemElement = document.createElement('resto-item');
       restoItemElement.restoData = resto;
       return restoItemElement.firstElementChild;
     });
@@ -33,4 +33,4 @@ class RestaurantList extends HTMLElement {
   }
 }
 
-customElements.define("resto-list", RestaurantList);
+customElements.define('resto-list', RestaurantList);

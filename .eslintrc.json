@@ -31,6 +31,7 @@
         "no-param-reassign": "off",
         "no-inner-declarations": "off",
         "linebreak-style": "off",
-        "global-require": "off"
+        "global-require": "off",
+        "no-extra-semi": "off"
     }
 }

@@ -74,6 +74,18 @@ module.exports = {
       clientsClaim: true,
       skipWaiting: true,
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+      runtimeCaching: [
+        {
+          urlPattern: /https:\/\/restaurant-api.dicoding.dev\//,
+          handler: "StaleWhileRevalidate",
+          options: {
+            cacheName: "menumate",
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
+      ],
     }),
   ],
 };

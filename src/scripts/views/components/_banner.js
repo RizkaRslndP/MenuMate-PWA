@@ -1,9 +1,9 @@
-import bannerImage from "../../../public/images/hero/hero-image_4.webp";
+import bannerImage from '../../../public/images/hero/hero-image_4.webp';
 
 class BannerElement extends HTMLElement {
   constructor() {
     super();
-    this.shadowDOM = this.attachShadow({ mode: "open" });
+    this.shadowDOM = this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
@@ -177,20 +177,20 @@ class BannerElement extends HTMLElement {
     </style>
     <banner>
       <div class='banner-container'>
-        <img src='${bannerImage}' alt='Banner-image'>
+        <img src='${bannerImage}' alt='Banner-image' crossorigin='anonymous'>
       </div>
       <div class='banner-text'>
         <h1>Menu Mate</h1>
-        <p id="typing-text">Fine Taste, In the City</p>
+        <p id='typing-text'>Fine Taste, In the City</p>
       </div>
     </banner>
     `;
 
-    const element = this.shadowDOM.getElementById("typing-text");
+    const element = this.shadowDOM.getElementById('typing-text');
 
     if (element !== null) {
       const originalText = element.innerHTML;
-      element.innerHTML = "";
+      element.innerHTML = '';
       function typeText(text, i) {
         if (i < text.length) {
           element.innerHTML += text.charAt(i);
@@ -206,4 +206,4 @@ class BannerElement extends HTMLElement {
   }
 }
 
-customElements.define("banner-element", BannerElement);
+customElements.define('banner-element', BannerElement);

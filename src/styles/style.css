@@ -102,7 +102,7 @@ nav-bar>.nav-container {
 
 .nav-logo {
   transition: opacity 0.5s;
-  padding: 10px 0;
+  padding: 12px;
 }
 
 .nav-logo * {
@@ -110,7 +110,7 @@ nav-bar>.nav-container {
 }
 
 .nav-logo img {
-  margin-right: 2px;
+  padding: 5px;
 }
 
 /* ---navbar menu --- */
@@ -194,7 +194,6 @@ h3 {
   outline-color: #eeeeee;
   outline-style: double;
   overflow: hidden;
-  margin-right: 20px;
   filter: drop-shadow(0px 10px 4px #141414);
 }
 

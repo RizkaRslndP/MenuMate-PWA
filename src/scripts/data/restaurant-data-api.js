@@ -1,5 +1,5 @@
-import API_ENDPOINT from "../globals/api-endpoint";
-import { getData } from "../utils";
+import API_ENDPOINT from '../globals/api-endpoint';
+import { getData } from '../utils';
 
 class restaurantDataApi {
   static async getRestaurantList() {
@@ -8,7 +8,7 @@ class restaurantDataApi {
       if (jsonResponse.restaurants) {
         return jsonResponse.restaurants;
       }
-      throw new Error("Daftar Restaurant tidak ditemukan.");
+      throw new Error('Daftar Restaurant tidak ditemukan.');
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +20,7 @@ class restaurantDataApi {
       if (jsonResponse.restaurant) {
         return jsonResponse.restaurant;
       }
-      throw new Error("Detail Restaurant tidak ditemukan.");
+      throw new Error('Detail Restaurant tidak ditemukan.');
     } catch (error) {
       console.error(error);
     }

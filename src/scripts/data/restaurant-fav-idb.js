@@ -1,10 +1,10 @@
-import { openDB } from "idb";
-import CONFIG from "../globals/config";
+import { openDB } from 'idb';
+import CONFIG from '../globals/config';
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
 const DB_PROMISE = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(database) {
-    database.createObjectStore(OBJECT_STORE_NAME, { keyPath: "id" });
+    database.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
   },
 });
 
@@ -23,7 +23,7 @@ class restaurantFavIdb {
   }
 
   static async addRestaurant(restaurant) {
-    if (!Object.prototype.hasOwnProperty.call(restaurant, "id")) {
+    if (!Object.prototype.hasOwnProperty.call(restaurant, 'id')) {
       return;
     }
     const db = await DB_PROMISE;

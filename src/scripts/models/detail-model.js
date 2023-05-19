@@ -1,7 +1,7 @@
-import Swal from "sweetalert2";
-import viewModel from "./view-model";
-import UrlParser from "../routes/url-parser";
-import { getElement } from "../utils";
+import Swal from 'sweetalert2';
+import viewModel from './view-model';
+import UrlParser from '../routes/url-parser';
+import { getElement } from '../utils';
 
 class DetailModel extends viewModel {
   constructor({ view, model }) {
@@ -16,7 +16,7 @@ class DetailModel extends viewModel {
     try {
       this.restaurantDetail = await detail.getRestaurantDetail(url.id);
     } catch (error) {
-      this.view.showMessage("Detail Restaurant tidak ditemukan.");
+      this.view.showMessage('Detail Restaurant tidak ditemukan.');
       return;
     }
 
@@ -36,8 +36,7 @@ class DetailModel extends viewModel {
    */
   async onFavButtonClick(event) {
     event.stopPropagation();
-    const { id, name, description, pictureId, city, rating } =
-      this.restaurantDetail;
+    const { id, name, description, pictureId, city, rating } = this.restaurantDetail;
 
     this.isFavoriteRestaurant
       ? await this.removeFromFavorite(id)
@@ -53,9 +52,9 @@ class DetailModel extends viewModel {
     this.isFavoriteRestaurant = !this.isFavoriteRestaurant;
     this.view.favButtonState(this.isFavoriteRestaurant);
 
-    if (process.env.NODE_ENV === "development") {
-      getElement("restaurant-details").dispatchEvent(
-        new Event("fav-btn:updated")
+    if (process.env.NODE_ENV === 'development') {
+      getElement('restaurant-details').dispatchEvent(
+        new Event('fav-btn:updated'),
       );
     }
   }
@@ -63,14 +62,14 @@ class DetailModel extends viewModel {
   async addToFavorite(restaurant) {
     await this._model.favorite.addRestaurant(restaurant);
     Swal.fire({
-      title: "Success",
-      text: "Restaurant berhasil ditambahkan ke daftar favorite!",
-      icon: "success",
-      confirmButtonText: "OK",
+      title: 'Success',
+      text: 'Restaurant berhasil ditambahkan ke daftar favorite!',
+      icon: 'success',
+      confirmButtonText: 'OK',
       customClass: {
-        popup: "popup-style",
-        title: "title-style",
-        confirmButton: "confirm-button",
+        popup: 'popup-style',
+        title: 'title-style',
+        confirmButton: 'confirm-button',
       },
     });
   }
@@ -78,14 +77,14 @@ class DetailModel extends viewModel {
   async removeFromFavorite(id) {
     await this._model.favorite.deleteRestaurant(id);
     Swal.fire({
-      title: "Success",
-      text: "Restaurant berhasil dihapus dari daftar favorite!",
-      icon: "error",
-      confirmButtonText: "OK",
+      title: 'Success',
+      text: 'Restaurant berhasil dihapus dari daftar favorite!',
+      icon: 'error',
+      confirmButtonText: 'OK',
       customClass: {
-        popup: "popup-style",
-        title: "title-style",
-        confirmButton: "confirm-button",
+        popup: 'popup-style',
+        title: 'title-style',
+        confirmButton: 'confirm-button',
       },
     });
   }

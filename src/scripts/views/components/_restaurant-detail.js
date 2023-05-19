@@ -1,4 +1,4 @@
-import { createElement } from "../../utils";
+import { createElement } from '../../utils';
 
 class RestaurantDetail extends HTMLElement {
   connectedCallback() {
@@ -47,13 +47,13 @@ class RestaurantDetail extends HTMLElement {
     const menus = details.menus;
     const rating = details.rating;
 
-    this.innerHTML = "";
+    this.innerHTML = '';
 
-    const infoRestoElement = createElement("resto-info");
+    const infoRestoElement = createElement('resto-info');
     this.appendChild(infoRestoElement);
 
-    this._favButton = createElement("button");
-    this._favButton.setAttribute("id", "fav-button");
+    this._favButton = createElement('button');
+    this._favButton.setAttribute('id', 'fav-button');
     this.appendChild(this._favButton);
 
     const infoResto = {
@@ -73,20 +73,20 @@ class RestaurantDetail extends HTMLElement {
    * @param {boolean} isFavorited
    */
   set favButtonState(isFavorited) {
-    const icon = isFavorited ? "👎" : "👍";
+    const icon = isFavorited ? '👎' : '👍';
     const label = isFavorited
-      ? "Hapus dari daftar Restaurant Favorite"
-      : "Tambah ke daftar Restaurant Favorite";
+      ? 'Hapus dari daftar Restaurant Favorite'
+      : 'Tambah ke daftar Restaurant Favorite';
 
     this._favButton.textContent = icon;
-    this._favButton.setAttribute("aria-label", label);
-    this._favButton.setAttribute("title", label);
+    this._favButton.setAttribute('aria-label', label);
+    this._favButton.setAttribute('title', label);
     if (isFavorited) {
-      this._favButton.classList.add("favorited");
+      this._favButton.classList.add('favorited');
     } else {
-      this._favButton.classList.remove("favorited");
+      this._favButton.classList.remove('favorited');
     }
   }
 }
 
-customElements.define("restaurant-details", RestaurantDetail);
+customElements.define('restaurant-details', RestaurantDetail);

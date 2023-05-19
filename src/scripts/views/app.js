@@ -1,5 +1,5 @@
-import routes from "../routes/routes";
-import UrlParser from "../routes/url-parser";
+import routes from '../routes/routes';
+import UrlParser from '../routes/url-parser';
 
 class App {
   constructor({ navBar, contentContainer }) {
@@ -10,19 +10,19 @@ class App {
 
   _appShellInit() {
     this._navBar.setMenu([
-      { url: "#/", label: "Home" },
-      { url: "#/favorite", label: "Favorite" },
+      { url: '#/', label: 'Home' },
+      { url: '#/favorite', label: 'Favorite' },
       {
-        url: "https://github.com/RizkaRslndP",
-        label: "About",
-        target: "_blank",
+        url: 'https://github.com/RizkaRslndP',
+        label: 'About',
+        target: '_blank',
       },
     ]);
   }
 
   async renderContent() {
     const url = UrlParser.parseActiveUrlWithCombiner();
-    if (url === "/main-content") {
+    if (url === '/main-content') {
       return;
     }
     window.scrollTo(0, 0);
@@ -33,7 +33,7 @@ class App {
     this._navBar.changeActiveMenuItem(url);
     this._navBar.background = contentElement.isHasHeroElement;
 
-    this._contentContainer.innerHTML = "";
+    this._contentContainer.innerHTML = '';
     this._contentContainer.appendChild(contentElement);
 
     await presenter.showContent();

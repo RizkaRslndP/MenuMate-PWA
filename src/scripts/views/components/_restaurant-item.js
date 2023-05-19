@@ -1,7 +1,7 @@
 import CONFIG from "../../globals/config";
 import "lazysizes";
 
-class RestoItem extends HTMLElement {
+class RestaurantItem extends HTMLElement {
   set restoData(data) {
     this._restoItem = data;
     this._render();
@@ -77,4 +77,4 @@ class RestoItem extends HTMLElement {
   }
 }
 
-customElements.define("resto-item", RestoItem);
+customElements.define("resto-item", RestaurantItem);

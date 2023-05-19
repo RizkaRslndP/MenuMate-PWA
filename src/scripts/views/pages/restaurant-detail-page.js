@@ -1,12 +1,12 @@
-import { getElement } from '../../utils';
-import Page from './restaurant-page';
+import { getElement } from "../../utils";
+import Page from "./restaurant-page";
 
 class DetailPage extends Page {
   constructor() {
     super({
       basePageElement:
-        '<section id="main-content" class="container"></section>',
-      contentElement: 'restaurant-details',
+        '<section id="/main-content" class="container"></section>',
+      contentElement: "restaurant-details",
     });
   }
 
@@ -24,14 +24,14 @@ class DetailPage extends Page {
   }
 
   _createFavButtonHandler() {
-    const favButton = getElement('#fav-button');
-    favButton.addEventListener('click', this._favButtonHandler);
+    const favButton = getElement("#fav-button");
+    favButton.addEventListener("click", this._favButtonHandler);
   }
 
   favButtonState(isFavorited) {
-    const detailElement = getElement('restaurant-details');
+    const detailElement = getElement("restaurant-details");
     detailElement.favButtonState = isFavorited;
   }
 }
 
-customElements.define('detail-page', DetailPage);
+customElements.define("detail-page", DetailPage);

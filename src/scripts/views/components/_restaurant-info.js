@@ -50,7 +50,7 @@ class RestaurantInfo extends HTMLElement {
             <h2>Menu</h2>
             <div class='menus'>
               <div class='sub-menu'>
-                <h3>Dish</h3>
+                <h3>Foods</h3>
                 <ul>
                   ${restoFoodMenu}
                 </ul>

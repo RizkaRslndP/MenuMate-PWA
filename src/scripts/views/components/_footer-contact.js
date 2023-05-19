@@ -114,7 +114,8 @@ class FooterContact extends HTMLElement {
       }
       
       .tombol-sub:hover {
-        color: transparent;
+        color: #211f1d;
+        font-weight: 500;
       }
       
       .tombol-sub:active {
@@ -124,7 +125,7 @@ class FooterContact extends HTMLElement {
       }
 
       .email-form button[type='submit']:hover {
-        background-color: #BD8729;
+        background-color: #ffedc4;
       }
 
       .footer-content, {

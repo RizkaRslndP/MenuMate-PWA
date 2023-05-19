@@ -25,7 +25,7 @@ class RestaurantDetail extends HTMLElement {
           <div class='skeleton_head'></div>
           <div class='skeleton_body'></div>
         </div>
-        <div class='resto-menus'>
+        <div class='Restaurant-menus'>
           <div class='skeleton_head'></div>
           <div class='menus'>
             <div class='skeleton_body'></div>
@@ -49,7 +49,7 @@ class RestaurantDetail extends HTMLElement {
 
     this.innerHTML = "";
 
-    const infoRestoElement = createElement("resto-info");
+    const infoRestoElement = createElement("restaurant-info");
     this.appendChild(infoRestoElement);
 
     this._favButton = createElement("button");

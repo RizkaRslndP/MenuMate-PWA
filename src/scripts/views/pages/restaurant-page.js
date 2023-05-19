@@ -26,7 +26,7 @@ class Page extends HTMLElement {
   showMessage(message) {
     this._contentContainer.innerHTML = /* html */`
       <div class='message'>
-        <p class='message_heading'>⛔️</p>
+        <p class='message_heading'>❕</p>
         <p class='message_content'>${message}</p>
       </div>
     `;

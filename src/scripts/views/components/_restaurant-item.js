@@ -1,5 +1,5 @@
-import CONFIG from '../../globals/config';
-import 'lazysizes';
+import CONFIG from "../../globals/config";
+import "lazysizes";
 
 class RestoItem extends HTMLElement {
   set restoData(data) {
@@ -42,41 +42,39 @@ class RestoItem extends HTMLElement {
       </div>
       <hr>
     </article>
-
-
     `;
   }
 
   set favButtonState(isFavorited) {
     const label = isFavorited
-      ? 'Hapus dari daftar Restaurant Favorite'
-      : 'Tambah ke daftar Restaurant Favorite';
+      ? "Hapus dari daftar Restaurant Favorite"
+      : "Tambah ke daftar Restaurant Favorite";
 
     this._favButton.innerHTML = `
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'>
       <path fill='none' d='M0 0H24V24H0z'></path>
       <path d='${
         isFavorited
-          ? 'M19 6H5v12h14V6zm-2 8H7v-2h10v2z'
-          : 'M12 3L9 9h6l-3 6 6-3v8h2V9l-6 3 3-6z'
+          ? "M19 6H5v12h14V6zm-2 8H7v-2h10v2z"
+          : "M12 3L9 9h6l-3 6 6-3v8h2V9l-6 3 3-6z"
       }'></path>
     </svg>
   `;
     this._favButton.ariaLabel = label;
     this._favButton.title = label;
-    this._favButton.classList.toggle('favorited', isFavorited);
-    this._favButton.classList.add('animate');
+    this._favButton.classList.toggle("favorited", isFavorited);
+    this._favButton.classList.add("animate");
 
-    this._favButton.addEventListener('click', () => {
+    this._favButton.addEventListener("click", () => {
       const newFavState = !this._restaurant.isFavorite;
       this._restaurant.isFavorite = newFavState;
       this.favButtonState = newFavState;
     });
 
     setTimeout(() => {
-      this._favButton.classList.remove('animate');
+      this._favButton.classList.remove("animate");
     }, 500);
   }
 }
 
-customElements.define('resto-item', RestoItem);
+customElements.define("resto-item", RestoItem);

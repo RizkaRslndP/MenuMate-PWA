@@ -1,15 +1,15 @@
-import Page from './restaurant-page';
+import Page from "./restaurant-page";
 
 class HomePage extends Page {
   constructor() {
     super({
-      basePageElement: /* html */ `
+      basePageElement: `
         <banner-element></banner-element>
         <about-resto></about-resto>
         <h3>Available Restaurant</h3>
         <section id='/main-content' class='container'></section>
       `,
-      contentElement: 'resto-list',
+      contentElement: "resto-list",
     });
   }
 
@@ -22,4 +22,4 @@ class HomePage extends Page {
   }
 }
 
-customElements.define('home-page', HomePage);
+customElements.define("home-page", HomePage);

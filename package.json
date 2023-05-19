@@ -42,7 +42,7 @@
     "karma-webpack": "^5.0.0",
     "puppeteer": "^19.9.0",
     "responsive-loader": "^2.3.0",
-    "sharp": "^0.32.0",
+    "sharp": "^0.32.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.36.2",
     "webpack-bundle-analyzer": "^4.4.2",

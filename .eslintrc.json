@@ -29,6 +29,8 @@
         "object-curly-newline": "off",
         "indent": "off",
         "no-param-reassign": "off",
-        "no-inner-declarations": "off"
+        "no-inner-declarations": "off",
+        "linebreak-style": "off",
+        "global-require": "off"
     }
 }

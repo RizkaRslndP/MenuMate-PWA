@@ -1,4 +1,4 @@
-import { createElement, getElement } from '../../utils';
+import { createElement, getElement } from "../../utils";
 
 class Page extends HTMLElement {
   constructor({ basePageElement, contentElement }) {
@@ -20,11 +20,11 @@ class Page extends HTMLElement {
 
   _render() {
     this.innerHTML = this._basePageElement;
-    this._contentContainer = getElement('section.container');
+    this._contentContainer = getElement("section.container");
   }
 
   showMessage(message) {
-    this._contentContainer.innerHTML = /* html */`
+    this._contentContainer.innerHTML = `
       <div class='message'>
         <p class='message_heading'>❕</p>
         <p class='message_content'>${message}</p>

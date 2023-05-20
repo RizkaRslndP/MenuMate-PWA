@@ -1,4 +1,4 @@
-import CONFIG from '../../globals/config';
+import CONFIG from "../../globals/config";
 
 class RestaurantInfo extends HTMLElement {
   set infoResto(infoResto) {
@@ -39,7 +39,7 @@ class RestaurantInfo extends HTMLElement {
         <div class='resto-img'>
           <img src='${
             CONFIG.SMALL_BASE_IMAGE_URL
-          }${pictureId}' alt='Resto Image ${name}'>
+          }${pictureId}' alt='Resto Image ${name}' crossorigin='anonymous'>
           </div>
           <vr>
           <div class='resto-description'>
@@ -78,7 +78,7 @@ class RestaurantInfo extends HTMLElement {
                 <span class='rating-stars'>
                   ${Array(Math.floor(rating))
                     .fill('<i class="rating-star"></i>')
-                    .join('')}
+                    .join("")}
                 </span>
               </p>
             </div>
@@ -93,7 +93,7 @@ class RestaurantInfo extends HTMLElement {
 }
 
 function createList(items) {
-  let listItems = '';
+  let listItems = "";
 
   for (let i = 0; i < items.length; i++) {
     const itemName = items[i].name;
@@ -103,4 +103,4 @@ function createList(items) {
   return listItems;
 }
 
-customElements.define('resto-info', RestaurantInfo);
+customElements.define("resto-info", RestaurantInfo);

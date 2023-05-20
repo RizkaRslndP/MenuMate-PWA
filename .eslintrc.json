@@ -32,6 +32,7 @@
         "no-inner-declarations": "off",
         "linebreak-style": "off",
         "global-require": "off",
-        "no-extra-semi": "off"
+        "no-extra-semi": "off",
+        "quotes": "off"
     }
 }

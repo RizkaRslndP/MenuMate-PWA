@@ -6,6 +6,7 @@ import { getElement } from '../utils';
 class DetailModel extends viewModel {
   constructor({ view, model }) {
     super({ view, model });
+    this.formSubmitHandler = this.onFormSubmit.bind(this);
     this.favButtonHandler = this.onFavButtonClick.bind(this);
   }
 
@@ -16,7 +17,11 @@ class DetailModel extends viewModel {
     try {
       this.restaurantDetail = await detail.getRestaurantDetail(url.id);
     } catch (error) {
-      this.view.showMessage('Detail Restaurant tidak ditemukan.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Tidak dapat menemukan detail Restaurant.',
+      });
       return;
     }
 
@@ -31,61 +36,70 @@ class DetailModel extends viewModel {
     this.view.favButtonState(this.isFavoriteRestaurant);
   }
 
-  /**
-   * @param {Event} event
-   */
   async onFavButtonClick(event) {
     event.stopPropagation();
-    const { id, name, description, pictureId, city, rating } = this.restaurantDetail;
+    const {
+      id, name, description, pictureId, city, rating,
+    } = this.restaurantDetail;
 
     this.isFavoriteRestaurant
-      ? await this.removeFromFavorite(id)
-      : await this.addToFavorite({
-          id,
-          name,
-          description,
-          pictureId,
-          city,
-          rating,
+      ? await this.removeFromFav(id)
+      : await this.addToFav({
+          id, name, description, pictureId, city, rating,
         });
 
     this.isFavoriteRestaurant = !this.isFavoriteRestaurant;
     this.view.favButtonState(this.isFavoriteRestaurant);
 
     if (process.env.NODE_ENV === 'development') {
-      getElement('restaurant-details').dispatchEvent(
-        new Event('fav-btn:updated'),
-      );
+      getElement('restaurant-details').dispatchEvent(new Event('fav-btn:updated'));
     }
   }
 
-  async addToFavorite(restaurant) {
-    await this._model.favorite.addRestaurant(restaurant);
+  async onFormSubmit(event) {
+    event.preventDefault();
+
+    try {
+      this.view.showLoadingInSubmitButton();
+
+      const reviewForm = getElement('#review-form');
+      const formData = new FormData(reviewForm);
+      const reviewData = {
+        id: this.restaurantDetail.id,
+        name: formData.get('name'),
+        review: formData.get('review'),
+      };
+
+      const response = await this._model.detail.addReview(reviewData);
+
+      this._view.showNewReviews(response);
+      reviewForm.reset();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: error.message,
+      });
+    } finally {
+      this._view.showLoadingInSubmitButton(false);
+    }
+  }
+
+  async addToFav(restaurant) {
+    await this.model.favorite.addRestaurant(restaurant);
     Swal.fire({
-      title: 'Success',
-      text: 'Restaurant berhasil ditambahkan ke daftar favorite!',
       icon: 'success',
-      confirmButtonText: 'OK',
-      customClass: {
-        popup: 'popup-style',
-        title: 'title-style',
-        confirmButton: 'confirm-button',
-      },
+      title: 'Success',
+      text: 'Restaurant berhasil ditambahkan ke favorite',
     });
   }
 
-  async removeFromFavorite(id) {
-    await this._model.favorite.deleteRestaurant(id);
+  async removeFromFav(id) {
+    await this.model.favorite.deleteRestaurant(id);
     Swal.fire({
+      icon: 'success',
       title: 'Success',
-      text: 'Restaurant berhasil dihapus dari daftar favorite!',
-      icon: 'error',
-      confirmButtonText: 'OK',
-      customClass: {
-        popup: 'popup-style',
-        title: 'title-style',
-        confirmButton: 'confirm-button',
-      },
+      text: 'Restaurant berhasil dihapus dari favorite',
     });
   }
 }

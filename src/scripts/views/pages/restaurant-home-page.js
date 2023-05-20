@@ -1,4 +1,5 @@
-import Page from './restaurant-page';
+/* eslint-disable quotes */
+import Page from "./restaurant-page";
 
 class HomePage extends Page {
   constructor() {
@@ -9,7 +10,7 @@ class HomePage extends Page {
         <h3>Available Restaurant</h3>
         <section id='/main-content' class='container'></section>
       `,
-      contentElement: 'resto-list',
+      contentElement: "resto-list",
     });
   }
 
@@ -22,4 +23,4 @@ class HomePage extends Page {
   }
 }
 
-customElements.define('home-page', HomePage);
+customElements.define("home-page", HomePage);

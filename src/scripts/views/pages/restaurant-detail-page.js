@@ -32,6 +32,16 @@ class DetailPage extends Page {
     const detailElement = getElement("restaurant-details");
     detailElement.favButtonState = isFavorited;
   }
+
+  set formSubmitHandler(formSubmitHandler) {
+    this._formSubmitHandler = formSubmitHandler;
+    this._createFavButtonHandler();
+  }
+
+  _createFormSubmithandler() {
+    const reviewForm = getElement('#review-form');
+    reviewForm.addEventListener('submit', this._formSubmitHandler);
+  }
 }
 
 customElements.define("detail-page", DetailPage);

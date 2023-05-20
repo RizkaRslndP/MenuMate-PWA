@@ -1,5 +1,5 @@
 import API_ENDPOINT from '../globals/api-endpoint';
-import { getData } from '../utils';
+import { getData, postData } from '../utils';
 
 class restaurantDataApi {
   static async getRestaurantList() {
@@ -24,6 +24,14 @@ class restaurantDataApi {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  static async addReview(data) {
+    const response = await postData(API_ENDPOINT.ADD_REVIEW, data);
+    if (response.customerReviews) {
+      return response.customerReviews;
+    }
+    throw new Error('Gagal memuat data, coba kembali nanti.');
   }
 }
 

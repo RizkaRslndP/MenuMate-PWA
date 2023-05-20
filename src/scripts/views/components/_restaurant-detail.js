@@ -5,87 +5,67 @@ class RestaurantDetail extends HTMLElement {
     this._renderSkeleton();
   }
 
-  set details(details = {}) {
+  set details(details) {
     this._details = details;
     this._render();
   }
 
   _renderSkeleton() {
     this.innerHTML = `
-      <div class='description skeleton'>
-        <div class='skeleton_head'></div>
-        <div class='desc_content'>
-          <div class='skeleton_body'></div>
-          <div class='skeleton_body'></div>
-        </div>
+  <div class="description skeleton">
+      <div class="skeleton__head"></div>
+        <div class="desc__content">
+          <div class="skeleton__body"></div>
+          <div class="skeleton__body"></div>
       </div>
-      
-      <div class='info'>
-        <div class='main-info'>
-          <div class='skeleton_head'></div>
-          <div class='skeleton_body'></div>
-        </div>
-        <div class='resto-menus'>
-          <div class='skeleton_head'></div>
-          <div class='menus'>
-            <div class='skeleton_body'></div>
-            <div class='skeleton_body'></div>
-          </div>
-        </div>
+  </div>
+
+  <div class="info">
+    <div class="main-info">
+      <div class="skeleton__head"></div>
+      <div class="skeleton__body"></div>
+    </div>
+    <div class="resto-menus">
+      <div class="skeleton__head"></div>
+      <div class="menus">
+        <div class="skeleton__body"></div>
+        <div class="skeleton__body"></div>
       </div>
-    `;
+    </div>
+  </div>
+`;
   }
 
   _render() {
-    const details = this._details;
-    const name = details.name;
-    const description = details.description;
-    const city = details.city;
-    const address = details.address;
-    const pictureId = details.pictureId;
-    const categories = details.categories;
-    const menus = details.menus;
-    const rating = details.rating;
+    const {
+      name, description, city, address, pictureId, categories, menus, rating, customerReviews,
+    } = this._details;
 
     this.innerHTML = '';
 
     const infoRestoElement = createElement('resto-info');
     this.appendChild(infoRestoElement);
 
+    const reviewElement = createElement('resto-review');
+    this.appendChild(reviewElement);
+
     this._favButton = createElement('button');
-    this._favButton.setAttribute('id', 'fav-button');
+    this._favButton.id = 'fav-button';
     this.appendChild(this._favButton);
 
-    const infoResto = {
-      name: name,
-      city: city,
-      address: address,
-      pictureId: pictureId,
-      rating: rating,
-      description: description,
-      categories: categories,
-      menus: menus,
+    infoRestoElement.infoResto = {
+      name, city, address, pictureId, rating, description, categories, menus,
     };
-    infoRestoElement.infoResto = infoResto;
+    reviewElement.reviews = customerReviews;
   }
 
-  /**
-   * @param {boolean} isFavorited
-   */
   set favButtonState(isFavorited) {
-    const icon = isFavorited ? '👎' : '👍';
-    const label = isFavorited
-      ? 'Hapus dari daftar Restaurant Favorite'
-      : 'Tambah ke daftar Restaurant Favorite';
+    const icon = isFavorited ? '×' : '+';
+    const label = isFavorited ? 'Hapus restaurant ini dari daftar favorite Anda' : 'Tambahkan restaurant ini ke daftar favorite Anda';
 
     this._favButton.textContent = icon;
-    this._favButton.setAttribute('aria-label', label);
-    this._favButton.setAttribute('title', label);
-    if (isFavorited) {
-      this._favButton.classList.add('favorited');
-    } else {
-      this._favButton.classList.remove('favorited');
-    }
+    this._favButton.ariaLabel = label;
+    this._favButton.title = label;
   }
 }
 

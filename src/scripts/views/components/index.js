@@ -9,6 +9,7 @@ import './_restaurant-item';
 /* halaman */
 import './_restaurant-detail';
 import './_restaurant-info';
+import './_restaurant-review';
 
 /* footer */
 import './_footer-contact';

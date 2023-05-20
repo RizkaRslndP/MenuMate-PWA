@@ -43,8 +43,8 @@ class DetailModel extends viewModel {
     } = this.restaurantDetail;
 
     this.isFavoriteRestaurant
-      ? await this.removeFromFav(id)
-      : await this.addToFav({
+      ? await this.removeFromFavorite(id)
+      : await this.addToFavorite({
           id, name, description, pictureId, city, rating,
         });
 
@@ -54,6 +54,24 @@ class DetailModel extends viewModel {
     if (process.env.NODE_ENV === 'development') {
       getElement('restaurant-details').dispatchEvent(new Event('fav-btn:updated'));
     }
+  }
+
+  async addToFavorite(restaurant) {
+    await this._model.favorite.addRestaurant(restaurant);
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: 'Restaurant berhasil ditambahkan ke favorite',
+    });
+  }
+
+  async removeFromFavorite(id) {
+    await this._model.favorite.deleteRestaurant(id);
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: 'Restaurant berhasil dihapus dari favorite',
+    });
   }
 
   async onFormSubmit(event) {
@@ -83,24 +101,6 @@ class DetailModel extends viewModel {
     } finally {
       this._view.showLoadingInSubmitButton(false);
     }
-  }
-
-  async addToFav(restaurant) {
-    await this.model.favorite.addRestaurant(restaurant);
-    Swal.fire({
-      icon: 'success',
-      title: 'Success',
-      text: 'Restaurant berhasil ditambahkan ke favorite',
-    });
-  }
-
-  async removeFromFav(id) {
-    await this.model.favorite.deleteRestaurant(id);
-    Swal.fire({
-      icon: 'success',
-      title: 'Success',
-      text: 'Restaurant berhasil dihapus dari favorite',
-    });
   }
 }
 

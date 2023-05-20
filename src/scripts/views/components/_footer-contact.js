@@ -1,7 +1,7 @@
 class FooterContact extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
 
     const FooterContactHtml = `
       <style>
@@ -110,7 +110,7 @@ class FooterContact extends HTMLElement {
       .tombol-sub a {
         text-decoration: none;
         font-size: medium;
-        color: #e4e4e4;
+        color: #c4c4c4;
       }
       
       .tombol-sub:hover {
@@ -126,6 +126,7 @@ class FooterContact extends HTMLElement {
 
       .email-form button[type='submit']:hover {
         background-color: #ffedc4;
+        outline: none;
       }
 
       .footer-content, {
@@ -229,4 +230,4 @@ class FooterContact extends HTMLElement {
   }
 }
 
-customElements.define('footer-contact', FooterContact);
+customElements.define("footer-contact", FooterContact);

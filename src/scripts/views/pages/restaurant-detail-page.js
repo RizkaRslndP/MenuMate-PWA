@@ -38,9 +38,9 @@ class DetailPage extends Page {
     this._createFavButtonHandler();
   }
 
-  _createFormSubmithandler() {
-    const reviewForm = getElement('#review-form');
-    reviewForm.addEventListener('submit', this._formSubmitHandler);
+  _createFormSubmitHandler() {
+    const reviewForm = getElement("#review-form");
+    reviewForm.addEventListener("submit", this._formSubmitHandler);
   }
 }
 

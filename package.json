@@ -9,7 +9,8 @@
     "serve": "http-server dist",
     "lint": "eslint ./src",
     "test": "karma start",
-    "e2e": "codeceptjs run --steps"
+    "e2e": "codeceptjs run --steps",
+    "start": "node server.js"
   },
   "author": "Rizka Rosalinda Pratiwi",
   "license": "MIT",

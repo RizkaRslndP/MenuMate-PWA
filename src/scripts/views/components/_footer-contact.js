@@ -23,7 +23,7 @@ class FooterContact extends HTMLElement {
         background-color: rgb(145, 126, 87);
       }
 
-      .footer-content h3 {
+      .footer-content h2 {
         font-size: 20px;
         margin-bottom: 10px;
         color: rgba(0, 0, 0, 0.9);
@@ -207,7 +207,7 @@ class FooterContact extends HTMLElement {
       <div id='about' class='footer'>
       <div class='footer-content'>
       <div class='social-icons'>
-        <h3>Follow Us</h3>
+        <h2>Follow Us</h2>
         <ul>
           <li><a href='https://github.com/RizkaRslndP' target='_blank'><img src='https://img.icons8.com/sf-black-filled/64/null/github.png' alt='Info to GitHub'></a></li>
           <li><a href='https://www.instagram.com/rzkrslndp/' target='_blank'><img src='https://img.icons8.com/sf-black-filled/64/null/instagram-new.png' alt='Info to Instagram'></a></li>

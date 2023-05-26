@@ -17,7 +17,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background-image: url(../public/images/bg.png);
+  background-image: url(../public/images/bg.jpg);
   background-size: cover;
 }
 
@@ -166,7 +166,8 @@ nav-bar>.nav-container {
 
 
 /* --- Restaurant List --- */
-h3 {
+h3,
+.available {
   color: rgb(145, 126, 87);
   font-size: 62px;
   font-family: 'Satisfy', cursive;
@@ -1009,8 +1010,9 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Style untuk h3 */
-h3 {
+/* Style h3 dan available restaurant */
+h3,
+.available {
   margin-top: 0;
   font-size: 1.2rem;
 }

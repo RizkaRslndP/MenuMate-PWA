@@ -7,7 +7,7 @@ class HomePage extends Page {
       basePageElement: `
         <banner-element></banner-element>
         <about-resto></about-resto>
-        <h3>Available Restaurant</h3>
+        <h2 class='available'>Available Restaurant</h2>
         <section id='/main-content' class='container'></section>
       `,
       contentElement: "resto-list",

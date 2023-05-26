@@ -1,9 +1,9 @@
-import bannerImage from '../../../public/images/hero/hero-image_4.webp';
+import bannerImage from "../../../public/images/hero/hero-image_4.webp";
 
 class BannerElement extends HTMLElement {
   constructor() {
     super();
-    this.shadowDOM = this.attachShadow({ mode: 'open' });
+    this.shadowDOM = this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
@@ -186,18 +186,18 @@ class BannerElement extends HTMLElement {
     </banner>
     `;
 
-    const element = this.shadowDOM.getElementById('typing-text');
+    const element = this.shadowDOM.getElementById("typing-text");
 
     if (element !== null) {
       const originalText = element.innerHTML;
-      element.innerHTML = '';
+      element.innerHTML = "";
       function typeText(text, i) {
         if (i < text.length) {
           element.innerHTML += text.charAt(i);
           i++;
           setTimeout(() => {
             typeText(text, i);
-          }, Math.random() * 200); // Random time for typing simulation
+          }, Math.random() * 200);
         }
       }
 
@@ -206,4 +206,4 @@ class BannerElement extends HTMLElement {
   }
 }
 
-customElements.define('banner-element', BannerElement);
+customElements.define("banner-element", BannerElement);

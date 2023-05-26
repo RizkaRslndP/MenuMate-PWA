@@ -14,7 +14,9 @@ class restaurantFavIdb {
       return;
     }
     const db = await DB_PROMISE;
-    return db.get(OBJECT_STORE_NAME, id);
+    const transaction = db.transaction(OBJECT_STORE_NAME, 'readonly');
+    const store = transaction.objectStore(OBJECT_STORE_NAME);
+    return store.get(id);
   }
 
   static async getRestaurantList() {
@@ -22,12 +24,12 @@ class restaurantFavIdb {
     return db.getAll(OBJECT_STORE_NAME);
   }
 
-  static async addRestaurant(restaurant) {
-    if (!Object.prototype.hasOwnProperty.call(restaurant, 'id')) {
+  static async addRestaurant(resto) {
+    if (!Object.prototype.hasOwnProperty.call(resto, 'id')) {
       return;
     }
     const db = await DB_PROMISE;
-    return db.put(OBJECT_STORE_NAME, restaurant);
+    return db.put(OBJECT_STORE_NAME, resto);
   }
 
   static async deleteRestaurant(id) {

@@ -1,6 +1,5 @@
 const { merge } = require("webpack-merge");
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const common = require("./webpack.common");
 
 module.exports = merge(common, {
@@ -22,12 +21,9 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [
-    new BundleAnalyzerPlugin(),
-  ],
   optimization: {
     minimizer: [
-      '...',
+      "...",
       new CssMinimizerPlugin({
         minify: [
           CssMinimizerPlugin.cssnanoMinify,
@@ -35,15 +31,13 @@ module.exports = merge(common, {
           CssMinimizerPlugin.cleanCssMinify,
         ],
         minimizerOptions: {
-          preset: [
-            'advanced',
-          ],
+          preset: ["advanced"],
         },
       }),
     ],
     splitChunks: {
-      chunks: 'all',
-      name: 'vendor',
+      chunks: "all",
+      name: "vendor",
     },
   },
 });

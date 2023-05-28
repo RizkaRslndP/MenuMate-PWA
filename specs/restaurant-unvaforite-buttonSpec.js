@@ -26,15 +26,15 @@ describe('Unliking A Restaurant', () => {
     expect(document.querySelector('[aria-label="unfav this restaurant"]')).toBeTruthy();
   });
 
-  it('should not display fav widget when the restaurant has been favorited', async () => {
+  it('should not display favorite widget when the restaurant has been favorited', async () => {
     await TestFactories.CREATE_FAV_BUTTON_PRESENTER_RESTO_FACTORIES({
       id: 1,
     });
 
-    expect(document.querySelector('[aria-label="fav this restaurant"]')).toBeFalsy();
+    expect(document.querySelector('[aria-label="favorite this restaurant"]')).toBeFalsy();
   });
 
-  it('should be able to remove favd restaurant from the list', async () => {
+  it('should be able to remove favorited restaurant from the list', async () => {
     await TestFactories.CREATE_FAV_BUTTON_PRESENTER_RESTO_FACTORIES({
       id: 1,
     });

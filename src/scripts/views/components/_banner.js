@@ -1,8 +1,7 @@
-/* eslint-disable import/no-duplicates */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
-import heroImage from '../../../public/images/hero/hero-image_4.jpg';
-import heroImageWebp from '../../../public/images/hero/hero-image_4.jpg';
+import heroImage from "../../../public/images/hero/hero-image_4.jpg";
+import heroImageWebp from "../../../public/images/hero/hero-image_4.jpg";
 
 const heroImageSizes = [
   { path: `${heroImage}?sizes[]=425`, width: 425 },
@@ -26,13 +25,12 @@ class BannerElement extends HTMLElement {
   _render() {
     this.innerHTML = `
       <picture>
-        ${this._createSourceElement(heroImageSizes, 'jpeg')}
-        ${this._createSourceElement(heroImageWebpSizes, 'webp')}
+      <source type="image/webp" media="(min-width:768px)" srcset="/images/hero-image/hero-image_4-large.webp" />
+      <source type="image/jpeg" media="(min-width:768px)" srcset="/images/hero-image/hero-image_4-large.jpg" />
+      <source type="image/webp" srcset="/images/hero-image/hero-image_4-small.webp" />
         <img
-          src="${heroImageSizes[0].path}"
-          width="${heroImageSizes[0].width}"
-          height="auto"
-          loading="lazy"
+          media="all"
+          type="image/jpeg" srcset="/images/hero-image/hero-image_4-small.jpg"
           alt="Banner Image"
         />
       </picture>
@@ -52,11 +50,12 @@ class BannerElement extends HTMLElement {
   }
 
   _createSourceElement(sizes, type) {
-    let elements = '';
+    let elements = "";
     sizes.forEach(({ path, width }, index) => {
-      const mediaQuery = index < sizes.length - 1
-        ? `(max-width: ${width}px)`
-        : `(min-width: ${sizes[index - 1].width}px)`;
+      const mediaQuery =
+        index < sizes.length - 1
+          ? `(max-width: ${width}px)`
+          : `(min-width: ${sizes[index - 1].width}px)`;
       const sourceTag = `<source media="${mediaQuery}" srcset="${path}" type="image/${type}">`;
 
       elements += sourceTag;
@@ -76,4 +75,4 @@ class BannerElement extends HTMLElement {
   }
 }
 
-customElements.define('banner-element', BannerElement);
+customElements.define("banner-element", BannerElement);

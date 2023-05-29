@@ -36,6 +36,7 @@
         "quotes": "off",
         "comma-dangle": "off",
         "operator-linebreak": "off",
-        "func-names": "off"
+        "func-names": "off",
+        "import/no-duplicates": "off"
     }
 }
